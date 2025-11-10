@@ -259,7 +259,7 @@ footer:
   nav:
   owner:
     enable: true
-    since: 2025
+    since: 2025.11.1
   # Copyright of theme and framework
   copyright:
     enable: true
@@ -452,7 +452,7 @@ busuanzi:
 math:
   # Choose: mathjax, katex
   # Leave it empty if you don't need math
-  use:
+  use: mathjax
   per_page: true
   hide_scrollbar: false
 
