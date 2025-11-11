@@ -200,7 +200,7 @@ toc:
   scroll_percent: true
 
 post_copyright:
-  enable: true
+  enable: false
   decode: false
   author_href:
   license: CC BY-NC-SA 4.0
@@ -452,7 +452,7 @@ busuanzi:
 math:
   # Choose: mathjax, katex
   # Leave it empty if you don't need math
-  use: mathjax
+  use: katex
   per_page: true
   hide_scrollbar: false
 
@@ -511,7 +511,7 @@ search:
 share:
   # Choose: sharejs / addtoany
   # Leave it empty if you don't need share
-  use: sharejs
+  use:
 
   # Share.js
   # https://github.com/overtrue/share.js
