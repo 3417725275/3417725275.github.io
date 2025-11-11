@@ -12,7 +12,7 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
-url: https://3417725275.github.io
+url: https://jugelizi.top
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -28,6 +28,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - CNAME
 
 # Writing
 new_post_name: :title.md
