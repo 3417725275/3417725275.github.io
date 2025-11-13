@@ -60,9 +60,9 @@ $$\mathbf{C}(u)=\sum_{i=0}^nB_{n,i}(u)\mathbf{P}_i$$
 
 要定义B样条基函数，我们还需要知道基函数的次数$p$。第$i$个次数为$p$的B样条基函数，记作$N_{i,p}(u)$，其定义如下：
 
-$$\left.N_{i,0}(u)=\left\{\begin{array}{lll}1&\quad\text{if}u_i\le u<u_{i+1}\\\\0&\quad\text{otherwise}\end{array}\right.\right.$$
+$$N_{i,0}(u)=\left\{\begin{array}{lll}1&\quad\text{if}u_i\le u<u_{i+1}\\\\0&\quad\text{otherwise}\end{array}\right.$$
 
-$$N_{i,p}(u)~=~\frac{u-u_{i}}{u_{i+p}-u_{i}}N_{i,p-1}(u)+\frac{u_{i+p+1}-u}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)$$
+$$N_{i,p}(u)=\frac{u-u_{i}}{u_{i+p}-u_{i}}N_{i,p-1}(u)+\frac{u_{i+p+1}-u}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)$$
 
 上述通常被称为$Cox-deBoor$递归公式。这个定义看起来复杂；但实际上并不难理解。如果次数为零（即$p = 0$），这些基函数都是阶梯函数，这也是上面第一个公式表达的内容。即，如果$u$位于第$i$个节点区间$[u_i, u_{i+1})$内，则基函数$N_{i,0}(u)$为1。
 
@@ -169,9 +169,9 @@ $$N_{0,2}(u)=0.5uN_{0,1}(u)+0.5(3-u)N_{1,1}(u)$$
 
 B样条曲线基函数的定义：
 
-$$\left.N_{i,0}(u)=\left\{\begin{array}{lll}1&\quad\text{if}u_i\le u<u_{i+1}\\\\0&\quad\text{otherwise}\end{array}\right.\right.$$
+$$N_{i,0}(u)=\left\{\begin{array}{lll}1&\quad\text{if}u_i\le u<u_{i+1}\\\\0&\quad\text{otherwise}\end{array}\right.$$
 
-$$\begin{aligned}N_{i,p}(u)&=&\frac{u-u_i}{u_{i+p}-u_i}N_{i,p-1}(u)+\frac{u_{i+p+1}-u}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)\end{aligned}$$
+$$N_{i,p}(u)=\frac{u-u_i}{u_{i+p}-u_i}N_{i,p-1}(u)+\frac{u_{i+p+1}-u}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)$$
 
 这组基函数具有以下性质，其中许多性质与贝塞尔曲线的基函数相似
 
@@ -281,7 +281,7 @@ $$\begin{aligned}N_{i,p}(u)&=&\frac{u-u_i}{u_{i+p}-u_i}N_{i,p-1}(u)+\frac{u_{i+p
 
 我们详细说明其中一项的具体计算过程，比如$N_{1,1}(u)$。它使用下式计算：
 
-$$\begin{aligned}N_{1,1}(u)=\frac{u-u_1}{u_2-u_1}N_{1,0}(u)+\frac{u_3-u}{u_3-u_2}N_{2,0}(u)\end{aligned}$$
+$$N_{1,1}(u)=\frac{u-u_1}{u_2-u_1}N_{1,0}(u)+\frac{u_3-u}{u_3-u_2}N_{2,0}(u)$$
 
 将$u_1 = u_2 = 0$和$u_3 = 0.3$代入上式得到：
 
@@ -557,7 +557,9 @@ B样条曲线需要比Bézier曲线更多的控制信息（即曲线的次数和
 
 对于任何给定在$[0,1]$上的 $u$，我们想要计算系数$N_{0,p}(u)$，$N_{1,p}(u)$，...，$N_{n,p}(u)$。一种简单的方法是使用以下递归关系：
 
-$$\left.\begin{aligned}&N_{i,0}(u)=\left\{\begin{array}{ll}1&\mathrm{if~}u_i\leq u<u_{i+1}\\\\0&\mathrm{otherwise}\end{array}\right.\\&N_{i,p}(u)=\frac{u-u_{i}}{u_{i+p}-u_{i}}N_{i,p-1}(u)+\frac{u_{i+p+1}-u}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)\end{aligned}\right.$$
+$$N_{i,0}(u)=\left\{\begin{array}{ll}1&\mathrm{if~}u_i\leq u<u_{i+1}\\\\0&\mathrm{otherwise}\end{array}\right.$$
+
+$$N_{i,p}(u)=\frac{u-u_{i}}{u_{i+p}-u_{i}}N_{i,p-1}(u)+\frac{u_{i+p+1}-u}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)$$
 
 然而，这是一个非常耗时的过程
 为了计算$N_{i,p}(u)$，我们需要计算$N_{i,p-1}(u)$和$N_{i+1,p-1}(u)$
@@ -600,7 +602,11 @@ $$\begin{array}{rcl}N_{n,0}(u)&=&\left\{\begin{array}{ll}1&\text{if }n\in[u_n,u_
 
 由于唯一的非零0阶基函数是$N_{n,0}(u)$，所以索引$i$只能在0和$n$的范围内。因此，$u_i$是零，$u_{i+n}$和$u_{i+n+1}$是1。因此，上述第二个等式可以重写为：
 
-$$\begin{aligned}&N_{0,n}(u)&&=\quad(1-u)N_{1,n-1}(u)\\&N_{n,n}(u)&&=\quad uN_{n,n-1}(u)\\&N_{i,n}(u)&&=\quad uN_{i,n-1}(u)+(1-u)N_{i+1,n-1}(u)\end{aligned}$$
+$$N_{0,n}(u)=(1-u)N_{1,n-1}(u)$$
+
+$$N_{n,n}(u)=uN_{n,n-1}(u)$$
+
+$$N_{i,n}(u)=uN_{i,n-1}(u)+(1-u)N_{i+1,n-1}(u)$$
 
 如果我们按照之前讨论的方式，将$N_{0,n}(u), N_{1,n}(u), ..., N_{n,n}(u)$的计算组织成一个三角形，我们会得到以下的图。在这个图中，每个向东北（或者，向东南）的箭头表示将$1-u$（或者，$u$）乘以箭头尾部的项。注意，计算中有$n$次迭代过程，每个迭代仅获取一列。因此，$N_{n,0}(u)$对$N_{0,n}(u)$的贡献是$(1-u)^n$，$N_{n,0}(u)$对$N_{n,n}(u)$的贡献是$u^n$。
 
@@ -645,11 +651,11 @@ $$\mathbf{C}(u)=\sum_{i=0}^nN_{i,p}(u)\mathbf{P}_i$$
 
 让控制点$P_i$移动到新的位置$P_i + v$。那么，新的$p$次B样条曲线$D(u)$如下：
 
-$$\begin{aligned}
-\mathrm{D}(u)& =\sum_{k=0}^{i-1}N_{k,p}(u)\mathbf{P}_{k}+N_{i,p}(u)(\mathbf{P}_{i}+\mathbf{v})+\sum_{k=i+1}^{n}N_{k,p}(u)\mathbf{P}_{k}  \\
-&=\sum_{k=0}^nN_{k,p}(u)\mathbf{P}_k+N_{i,p}(u)\mathbf{v} \\
-&=\mathbf{C}(u)+N_{i,p}(u)\mathbf{v}
-\end{aligned}$$
+$$\mathrm{D}(u)=\sum_{k=0}^{i-1}N_{k,p}(u)\mathbf{P}_{k}+N_{i,p}(u)(\mathbf{P}_{i}+\mathbf{v})+\sum_{k=i+1}^{n}N_{k,p}(u)\mathbf{P}_{k}$$
+
+$$=\sum_{k=0}^nN_{k,p}(u)\mathbf{P}_k+N_{i,p}(u)\mathbf{v}$$
+
+$$=\mathbf{C}(u)+N_{i,p}(u)\mathbf{v}$$
 
 因此，新的曲线$D(u)$只是原始曲线$C(u)$加上一个平移向量$N_{i,p}(u)\mathbf{v}$。
 由于$N_{i,p}(u)$在区间$[u_i,u_i+p+1)$上是非零的，如果$u$不在这个区间，这个"平移"项就是零。**因此，移动一个控制点只会影响给定曲线在$[u_i,u_i+p+1)$区间的部分。**
@@ -773,11 +779,11 @@ $$\mathbf{C}(u)=\sum_{i=0}^nN_{i,p}(u)\mathbf{P}_i$$
 
 基函数的导数如下：
 
-$$\dfrac{\text{d}}{\text{d}u}N_{i,p}(u)=N'_{i,p}(u)=\dfrac{p}{u_{i+p}-u_i}N_{i,p-1}(u)-\dfrac{p}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)$$
+$$\frac{\text{d}}{\text{d}u}N_{i,p}(u)=N'_{i,p}(u)=\frac{p}{u_{i+p}-u_i}N_{i,p-1}(u)-\frac{p}{u_{i+p+1}-u_{i+1}}N_{i+1,p-1}(u)$$
 
 将这些导数待会原曲线方程，得到如下结果：
 
-$$\dfrac{\mathrm{d}}{\mathrm{d}u}\mathbf{C}(u)=\mathbf{C}'(u)=\sum_{i=0}^{n-1}N_{i+1,p-1}(u)\mathbf{Q}_i$$
+$$\frac{\mathrm{d}}{\mathrm{d}u}\mathbf{C}(u)=\mathbf{C}'(u)=\sum_{i=0}^{n-1}N_{i+1,p-1}(u)\mathbf{Q}_i$$
 
 其中$Q_i$定义如下：
 
@@ -789,7 +795,7 @@ $$\mathbf{Q}_i=\frac{p}{u_{i+p+1}-u_{i+1}}(\mathbf{P}_{i+1}-\mathbf{P}_i)$$
 
 那么，可以证明在原始节点序列计算的$N_{i+1,p-1}(u)$值等于在新的节点序列上的$N_{i,p-1}(u)$值。因此，在新的节点序列上，B样条曲线的导数是以下形式：
 
-$$\dfrac{\mathrm{d}}{\mathrm{d}u}\mathbf{C}(u)=\mathbf{C}'(u)=\sum_{i=0}^{n-1}N_{i,p-1}(u)\mathbf{Q}_i$$
+$$\frac{\mathrm{d}}{\mathrm{d}u}\mathbf{C}(u)=\mathbf{C}'(u)=\sum_{i=0}^{n-1}N_{i,p-1}(u)\mathbf{Q}_i$$
 
 下面左图是一个次数为5的B样条曲线。它的导数曲线，是由新的$n$个控制点定义的次数为$p-1$的B样条曲线，如中间图所示。下面右图中去掉了控制折线。
 
@@ -930,7 +936,13 @@ $$\begin{array}{rcl}\mathbf{Q}_5&=&\left(1-\frac{1}{6}\mathbf{P}_4\right)+\frac{
 
 由于$ t$ 在 $[u_8,u_9)$ 中，所受影响的控制点是 $P_8, P_7, P_6, P_5$ 和 $P_4$。系数计算如下：
 
-$$\begin{aligned}&a_{8}=\frac{t-u_{8}}{u_{12}-u_{8}}=\frac{0.5-0.5}{1-0.875}=0\\&a_{7}=\frac{t-u_{7}}{u_{11}-u_{7}}=\frac{0.5-0.375}{0.875-0.375}=\frac{1}{4}\\&a_{6}=\frac{t-u_{6}}{u_{10}-u_{6}}=\frac{0.5-0.25}{0.75-0.25}=\frac{1}{2}\\&a_{5}=\frac{t-u_{5}}{u_{9}-u_{5}}=\frac{0.5-0.125}{0.625-0.125}=\frac{3}{4}\end{aligned}$$
+$$a_{8}=\frac{t-u_{8}}{u_{12}-u_{8}}=\frac{0.5-0.5}{1-0.875}=0$$
+
+$$a_{7}=\frac{t-u_{7}}{u_{11}-u_{7}}=\frac{0.5-0.375}{0.875-0.375}=\frac{1}{4}$$
+
+$$a_{6}=\frac{t-u_{6}}{u_{10}-u_{6}}=\frac{0.5-0.25}{0.75-0.25}=\frac{1}{2}$$
+
+$$a_{5}=\frac{t-u_{5}}{u_{9}-u_{5}}=\frac{0.5-0.125}{0.625-0.125}=\frac{3}{4}$$
 
 新的控制点是：
 
@@ -966,15 +978,19 @@ $$\mathbf{Q}_k=(1-0)\mathbf{P}_{k-1}+0\mathbf{P}_k=\mathbf{P}_{k-1}$$
 
 假设 $t$ 插入在重复度为 $s$ 的节点 $u_k$ 处。我们有 $s$ 个连续相等的节点：$u_k = u_{k-1} = u_{k-2} = .... = u_{k-s+1}$ 并且 $u_{k-s+1}$ 不等于 $u_{k-s}$。在计算系数 $a_k, ...., a_{k-p+1}$ 时，我们有以下情况：
 
-$$\begin{aligned}a_{k}&=\quad\frac{t-u_k}{u_{k+p}-u_k}=\frac{u_k-u_k}{u_{k+p}-u_k}=0\\a_{k-1}&=\quad\frac{t-u_{k-1}}{u_{k+p-1}-u_{k-1}}=\frac{u_k-u_{k-1}}{u_{k+p-1}-u_{k-1}}=0\\a_{k-s+1}&=\quad\frac{t-u_{k-s+1}}{u_{k-s+1+p}-u_{k-s+1}}=\frac{u_k-u_{k-s+1}}{u_{k-s+1+p}-u_{k-s+1}}=0\end{aligned}$$
+$$a_{k}=\frac{t-u_k}{u_{k+p}-u_k}=\frac{u_k-u_k}{u_{k+p}-u_k}=0$$
+
+$$a_{k-1}=\frac{t-u_{k-1}}{u_{k+p-1}-u_{k-1}}=\frac{u_k-u_{k-1}}{u_{k+p-1}-u_{k-1}}=0$$
+
+$$a_{k-s+1}=\frac{t-u_{k-s+1}}{u_{k-s+1+p}-u_{k-s+1}}=\frac{u_k-u_{k-s+1}}{u_{k-s+1+p}-u_{k-s+1}}=0$$
 
 因此，系数 $a_k, ...., a_{k-p+1}$ 都是零，因此，我们有
 
-$$\begin{aligned}
-\mathbf{Q}_{k}& =(1-a_k)\mathbf{P}_{k-1}+a_k\mathbf{P}_k=\mathbf{P}_{k-1}  \\
-\mathbf{Q}_{k-1}& =(1-a_{k-1})\mathbf{P}_{k-2}+a_{k-1}\mathbf{P}_{k-1}=\mathbf{P}_{k-2}  \\
-\mathbf{Q}_{k-s}& =(1-a_{k-s+1})\mathbf{P}_{k-s}+a_{k-s+1}\mathbf{P}_{k-s}=\mathbf{P}_{k-s} 
-\end{aligned}$$
+$$\mathbf{Q}_{k}=(1-a_k)\mathbf{P}_{k-1}+a_k\mathbf{P}_k=\mathbf{P}_{k-1}$$
+
+$$\mathbf{Q}_{k-1}=(1-a_{k-1})\mathbf{P}_{k-2}+a_{k-1}\mathbf{P}_{k-1}=\mathbf{P}_{k-2}$$
+
+$$\mathbf{Q}_{k-s}=(1-a_{k-s+1})\mathbf{P}_{k-s}+a_{k-s+1}\mathbf{P}_{k-s}=\mathbf{P}_{k-s}$$
 
 这表明，如果新的节点 $t$ 插入在重复度为 $s$ 的节点 $u_k$ 处，那么最后 $s$ 个新的控制点 $Q_k, Q_{k-1}, ..., Q_{k-s+1}$ 等于原始控制点 $P_{k-1}, P_{k-2}, ..., P_{k-s}$。如果 $s = 1$（即，简单节点），$Q_k$ 等于 $P_{k-1}$，这正是示例2中讨论的。如果 $s = 0$（即，t 不是一个节点），那么所有从 $P_{k-p}$ 到 $P_k$ 的控制点都参与其中。这是示例1的情况。下图显示了计算过程：
 
@@ -1179,7 +1195,11 @@ $P_{k-s,p-s}$ is the point $C(u)$.
 
 首先计算第一列。涉及的系数是
 
-$$\begin{aligned}&a_{4,1}&&=\frac{u-u_4}{u_{4+3}-u_4}=0.2\\&a_{3,1}&&=\frac{u-u_3}{u_{3+3}-u_3}=8/15=0.53\\&a_{2,1}&&=\frac{u-u_2}{u_{2+3}-u_2}=0.8\end{aligned}$$
+$$a_{4,1}=\frac{u-u_4}{u_{4+3}-u_4}=0.2$$
+
+$$a_{3,1}=\frac{u-u_3}{u_{3+3}-u_3}=8/15=0.53$$
+
+$$a_{2,1}=\frac{u-u_2}{u_{2+3}-u_2}=0.8$$
 
 第一列的计算如下：
 
@@ -1187,7 +1207,9 @@ $$\mathbf{P}_{4,1}=(1-a_{4,1})\mathbf{P}_{3,0}+a_{4,1}\mathbf{P}_{4,0}=0.8\mathb
 
 要计算第二列，我们需要以下系数：
 
-$$\begin{array}{rcl}a_{4,2}&=&\dfrac{u-u_4}{u_{4+3-1}-u_4}=0.3\\a_{3,2}&=&\dfrac{u-u_3}{u_{3+3-1}-u_3}=0.8\end{array}$$
+$$a_{4,2}=\frac{u-u_4}{u_{4+3-1}-u_4}=0.3$$
+
+$$a_{3,2}=\frac{u-u_3}{u_{3+3-1}-u_3}=0.8$$
 
 对应的点是
 
@@ -1218,7 +1240,7 @@ $$\mathbf{P}_{4,3}=(1-a_{4,3})\mathbf{P}_{3,2}+a_{4,3}\mathbf{P}_{4,2}=0.4\mathb
 
 设节点为 $u_0 = u_1 = ... = u_n = 0$ 和 $u_{n+1} = u_{n+2} = ... = u_{2n+1} = 1$。对于任意给定 $u$值，它在 $[u_n, u_{n+1})$ 中。因此，参与节点插入计算的控制点是 $P_n, ..., P_{n-n} = P_0$，用于计算 $a_i$ 的区间是 $[u_n, u_{n+n}) = [0,1)$，$[u_{n-1}, u_{n+n-1}) = [0,1)$，...，和 $[u_{n-n+1}, u_{n+1}) = [0,1)$。因此，对于每一个 $i$，我们有
 
-$$a_i=\dfrac{u-u_i}{u_{i+n}-u_n}=u\quad\text{for}1\leq i\leq n$$
+$$a_i=\frac{u-u_i}{u_{i+n}-u_n}=u\quad\text{for}1\leq i\leq n$$
 
 由于每一条边都以 $a_i:1-a_i$ 的比例划分，在这个特殊情况下，划分比例都是相同的，等于 $u:1-u$。因此，通过$de Boor$算法计算出的第一次节点插入的结果，恰好是$de Casteljau$算法中计算结果的第一列。
 
