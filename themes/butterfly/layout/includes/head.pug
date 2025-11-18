@@ -37,6 +37,15 @@ include ./head/structured_data.pug
 !=favicon_tag(theme.favicon || config.favicon)
 link(rel="canonical" href=urlNoIndex(null,config.pretty_urls.trailing_index,config.pretty_urls.trailing_html))
 
+//- 背景图片预加载
+if theme.background
+  - var bgPath = theme.background
+  - var absoluteUrlPattern = /^(?:[a-z][a-z\d+.-]*:)?\/\//i
+  - var relativeUrlPattern = /^(\.\/|\.\.\/|\/|[^/]+\/).*$/
+  - var colorPattern = /^(#|rgb|rgba|hsl|hsla)/i
+  if !colorPattern.test(bgPath) && (absoluteUrlPattern.test(bgPath) || relativeUrlPattern.test(bgPath))
+    link(rel="preload" as="image" href=url_for(bgPath))
+
 //- 預解析
 !=partial('includes/head/preconnect', {}, {cache: true})
 

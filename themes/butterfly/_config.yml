@@ -64,7 +64,7 @@ avatar:
 disable_top_img: false
 
 # 如果页面未设置横幅，将显示 default_top_img
-default_top_img:
+default_top_img: /img/index2.jpg
 
 # 首页横幅图片
 index_img: /img/index.jpg
@@ -73,20 +73,20 @@ index_img: /img/index.jpg
 archive_img: /img/index2.jpg
 
 # 注意: 标签页，不是标签列表页
-tag_img:
+tag_img: /img/index2.jpg
 
 # 标签页横幅图片，可以为每个标签设置横幅图片
 # 格式:
 #  - 标签名: xxxxx
-tag_per_img:
+tag_per_img: /img/index2.jpg
 
 # 注意: 分类页，不是分类列表页
-category_img:
+category_img: /img/index2.jpg
 
 # 分类页横幅图片，可以为每个分类设置横幅图片
 # 格式:
 #  - 分类名: xxxxx
-category_per_img:
+category_per_img: /img/index2.jpg
 
 # 页脚背景图片
 footer_img: false
@@ -277,7 +277,7 @@ aside:
   button: true
   mobile: true
   # 位置: left / right
-  position: right
+  position: left
   display:
     archive: true
     tag: true
@@ -850,7 +850,7 @@ activate_power_mode:
 # canvas_ribbon
 # 参见: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   # 丝带大小
   size: 150
   # 丝带透明度 (0 ~ 1)
@@ -880,7 +880,7 @@ canvas_nest:
 
 # 鼠标点击效果: 烟花
 fireworks:
-  enable: false
+  enable: true
   zIndex: 9999
   mobile: false
 
