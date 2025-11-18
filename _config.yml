@@ -66,6 +66,11 @@ default_category: uncategorized
 category_map:
 tag_map:
 
+# 分类生成器配置
+category_generator:
+  per_page: 10        # 每页显示的文章数量
+  order_by: -date     # 排序方式：-date 表示按日期降序
+  
 # Metadata elements
 meta_generator: true
 
