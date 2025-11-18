@@ -2,6 +2,8 @@
 layout: post
 title: B样条曲线
 date: 2025-11-12 10:57:06
+categories: 
+  - 曲线曲面
 tags:
 ---
 

@@ -2,6 +2,8 @@
 layout: post
 title: NURBS曲线
 date: 2025-11-18 10:57:09
+categories: 
+  - 曲线曲面
 tags:
 ---
 
