@@ -37,6 +37,11 @@
 
     if hexo-config('aside.position') == 'left'
       +minWidth900()
+        -webkit-box-ordinal-group: 2
+        -moz-box-ordinal-group: 2
+        -o-box-ordinal-group: 2
+        -ms-flex-order: 2
+        -webkit-order: 2
         order: 2
 
   // 隱藏aside
