@@ -15,7 +15,7 @@ nav:
   display_title: true
   display_post_title: true
   # 是否固定导航栏
-  fixed: false
+  fixed: true
 
 menu:
   首页: / || fas fa-home
@@ -277,7 +277,7 @@ aside:
   button: true
   mobile: true
   # 位置: left / right
-  position: left
+  position: right
   display:
     archive: true
     tag: true
@@ -756,8 +756,8 @@ site_verification:
 # 注意: 颜色值必须用双引号括起来，如 "#000"，否则可能导致错误！
 
 # theme_color:
-#   enable: true
-#   main: "#49B1F5"
+  enable: true
+  main: "#00c4b6"
 #   paginator: "#00c4b6"
 #   button_hover: "#FF7242"
 #   text_selection: "#00c4b6"
@@ -1053,7 +1053,7 @@ css_prefix: true
 # 将代码插入到 head (在 '</head>' 标签之前) 和底部 (在 '</body>' 标签之前)
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/css/custom.css">
   bottom:
     # - <script src="xxxx"></script>
 
