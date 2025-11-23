@@ -20,6 +20,10 @@ nav:
 menu:
   首页: / || fas fa-home
   分类: /categories/ || fas fa-folder-open
+  计算几何: /categories/计算几何/ || fas fa-calculator
+  图形渲染: /categories/图形渲染/ || fas fa-paint-brush
+  三维建模: /categories/三维建模/ || fas fa-cube
+  其他: /categories/其他/ || fas fa-ellipsis-h
   # List||fas fa-list:
   #Music: /music/ || fas fa-music
   #Movie: /movies/ || fas fa-video

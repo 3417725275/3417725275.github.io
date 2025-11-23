@@ -85,7 +85,7 @@ pagination_dir: page
 
 # Include / Exclude file(s)
 include:
-exclude:
+exclude: 
 ignore:
 
 # Extensions
