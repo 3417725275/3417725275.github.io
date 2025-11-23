@@ -277,7 +277,7 @@ aside:
   button: true
   mobile: true
   # 位置: left / right
-  position: right
+  position: left
   display:
     archive: true
     tag: true
