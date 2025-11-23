@@ -64,29 +64,29 @@ avatar:
 disable_top_img: false
 
 # 如果页面未设置横幅，将显示 default_top_img
-default_top_img: /img/index2.jpg
+default_top_img: /img/index2.webp
 
 # 首页横幅图片
-index_img: /img/index.jpg
+index_img: /img/index.webp
 
 # 归档页横幅图片
-archive_img: /img/index2.jpg
+archive_img: /img/index2.webp
 
 # 注意: 标签页，不是标签列表页
-tag_img: /img/index2.jpg
+tag_img: /img/index2.webp
 
 # 标签页横幅图片，可以为每个标签设置横幅图片
 # 格式:
 #  - 标签名: xxxxx
-tag_per_img: /img/index2.jpg
+tag_per_img: /img/index2.webp
 
 # 注意: 分类页，不是分类列表页
-category_img: /img/index2.jpg
+category_img: /img/index2.webp
 
 # 分类页横幅图片，可以为每个分类设置横幅图片
 # 格式:
 #  - 分类名: xxxxx
-category_per_img: /img/index2.jpg
+category_per_img: /img/index2.webp
 
 # 页脚背景图片
 footer_img: false
