@@ -20,6 +20,10 @@ nav:
 menu:
   首页: / || fas fa-home
   分类: /categories/ || fas fa-folder-open
+  计算几何: /categories/计算几何/ || fas fa-calculator
+  图形渲染: /categories/图形渲染/ || fas fa-paint-brush
+  三维建模: /categories/三维建模/ || fas fa-cube
+  其他: /categories/其他/ || fas fa-ellipsis-h
   # List||fas fa-list:
   #Music: /music/ || fas fa-music
   #Movie: /movies/ || fas fa-video
@@ -64,29 +68,29 @@ avatar:
 disable_top_img: false
 
 # 如果页面未设置横幅，将显示 default_top_img
-default_top_img: /img/index2.jpg
+default_top_img: /img/index2.webp
 
 # 首页横幅图片
-index_img: /img/index.jpg
+index_img: /img/index.webp
 
 # 归档页横幅图片
-archive_img: /img/index2.jpg
+archive_img: /img/index2.webp
 
 # 注意: 标签页，不是标签列表页
-tag_img: /img/index2.jpg
+tag_img: /img/index2.webp
 
 # 标签页横幅图片，可以为每个标签设置横幅图片
 # 格式:
 #  - 标签名: xxxxx
-tag_per_img: /img/index2.jpg
+tag_per_img: /img/index2.webp
 
 # 注意: 分类页，不是分类列表页
-category_img: /img/index2.jpg
+category_img: /img/index2.webp
 
 # 分类页横幅图片，可以为每个分类设置横幅图片
 # 格式:
 #  - 分类名: xxxxx
-category_per_img: /img/index2.jpg
+category_per_img: /img/index2.webp
 
 # 页脚背景图片
 footer_img: false
@@ -277,7 +281,7 @@ aside:
   button: true
   mobile: true
   # 位置: left / right
-  position: right
+  position: left
   display:
     archive: true
     tag: true
