@@ -5,6 +5,10 @@ date: 2025-11-18 10:57:09
 categories: 
   - 曲线曲面
 tags:
+  - 计算几何
+  - 曲线曲面
+updated: 2025-12-02 10:00:00
+keywords: NURBS曲线, NURBS, 计算几何, 曲线曲面
 ---
 
 
