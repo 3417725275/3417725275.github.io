@@ -93,7 +93,7 @@ category_img: /img/index2.webp
 category_per_img: /img/index2.webp
 
 # 页脚背景图片
-footer_img: false
+footer_img: /img/index2.webp
 
 # 网站背景
 # 可以设置为颜色或图片链接
@@ -153,7 +153,7 @@ index_top_img_height:
 
 # 首页副标题
 subtitle:
-  enable: false
+  enable: true
   # 打字机效果
   effect: true
   # 自定义 typed.js
@@ -169,6 +169,8 @@ subtitle:
   source: false
   # 如果关闭打字机效果，副标题将只显示 sub 的第一行
   sub:
+    - 一曲肝肠断 何处觅知音
+  
 
 # 首页文章布局
 # 1: 封面在左，信息在右
@@ -178,7 +180,7 @@ subtitle:
 # 5: 信息显示在封面上
 # 6: 瀑布流布局 - 封面在上，信息在下
 # 7: 瀑布流布局 - 信息显示在封面上
-index_layout: 7
+index_layout: 6
 
 # 在首页显示文章介绍
 # 1: description

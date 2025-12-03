@@ -13,7 +13,11 @@ timezone: Asia/Shanghai  # 网站时区
 
 # URL - URL配置
 url: https://jugelizi.top  # 网站URL地址
-permalink: :year/:month/:day/:title/  # 文章永久链接格式
+permalink: post/:abbrlink.html # post为自定义前缀
+abbrlink:
+  alg: crc32   #算法： crc16(default) and crc32
+  rep: hex     #进制： dec(default) and hex
+  force: true
 permalink_defaults:  # 永久链接的默认值
 pretty_urls:  # 美化URL设置
   trailing_index: true  # 是否在目录URL后添加 index.html
@@ -54,6 +58,16 @@ prismjs:  # Prism.js 配置
   preprocess: true  # 预处理
   line_number: true  # 显示行号
   tab_replace: ''  # 替换制表符
+  
+# Markdown-it-plus 配置 - 用于配置 markdown 渲染器
+markdown_it_plus:
+  plugins:
+    - plugin:
+        name: '@iktakahiro/markdown-it-katex'
+        enable: true
+        options:
+          strict: false  # 禁用严格模式，关闭警告
+          throwOnError: false  # 不抛出错误，只警告
 
 # Home page setting - 首页设置
 index_generator:  # 首页生成器配置
@@ -96,3 +110,7 @@ deploy:  # 部署设置
   type: git  # 部署类型：git
   repository: git@github.com:3417725275/3417725275.github.io.git  # Git仓库地址
   branch: master  # 部署分支
+
+
+butterfly_article_double_row:
+  enable: true
