@@ -1,6 +1,7 @@
 ---
 layout: post
 title: B样条曲线
+cover: /img/cover9.webp
 categories:
   - 计算几何
   - 几何表示

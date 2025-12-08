@@ -1,6 +1,7 @@
 ---
 layout: post
 title: NURBS曲线
+cover: /img/cover12.webp
 categories:
   - 计算几何
   - 几何表示
