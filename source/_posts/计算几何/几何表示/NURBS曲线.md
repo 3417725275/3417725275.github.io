@@ -1,11 +1,10 @@
 ---
 layout: post
 title: NURBS曲线
-cover: /img/cover12.webp
+cover: /img/ratio_3_2/cover12.webp
 categories:
   - 计算几何
   - 几何表示
-  - 曲线表示
 tags:
   - 计算几何
   - 曲线曲面
