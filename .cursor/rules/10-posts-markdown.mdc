@@ -1,0 +1,21 @@
+---
+description: 写作与文章资源（source/_posts）
+globs:
+  - "source/_posts/**/*.md"
+  - "source/_posts/**/*.{png,jpg,jpeg,gif,webp,svg}"
+---
+
+文章写作规范：
+- 必须包含 Front Matter（YAML），至少包含：title / date / categories / tags
+- 遵循 `post_asset_folder: true`：文章同名资源文件夹与文章放在同一目录层级
+- 插图优先用相对路径引用同名资源文件夹里的图片，例如：`![](./image.png)`
+- 站点通用图片放 `source/img/`，引用用绝对路径：`/img/xxx.webp`
+
+数学与代码块：
+- 数学公式：行内 `$...$`，块级 `$$...$$`（项目已启用 KaTeX 插件）
+- 代码块用三反引号并标注语言；代码示例尽量最小可复现
+
+链接与路径：
+- 站内链接尽量用最终站点路径风格（避免写死本地绝对路径）
+- 不要修改 `public/` 下的任何文章 HTML（那是生成结果）
+

@@ -1,0 +1,31 @@
+---
+description: Hexo + Butterfly 博客项目（全局规则）
+alwaysApply: true
+---
+
+你在一个 Hexo 静态博客仓库中工作：
+- Hexo: 7.3.0（npm scripts: server / build / clean / deploy）
+- 主题: Butterfly 5.5.2
+- 模板: Pug；样式: Stylus；文章: Markdown（markdown-it-plus + KaTeX 插件）
+
+工作优先级与边界：
+- 优先修改内容与配置：`source/`、根 `_config.yml`、`themes/butterfly/_config.yml`
+- `public/` 是生成产物，禁止直接改（应通过 Hexo 源文件与配置来改）
+- `node_modules/` 禁止改
+- 除非用户明确要求，否则不要直接修改 `themes/butterfly/` 主题源码；自定义优先用：
+  - 主题配置（`themes/butterfly/_config.yml`）
+  - `source/css/custom.css`
+  - `source/img/` 放站点静态资源（访问路径 `/img/...`）
+  - 主题提供的 inject / 自定义入口（仅在确认配置里有对应开关时使用）
+
+命令约定（Windows / npm）：
+- 本地预览：`npm run server`
+- 生成：`npm run build`
+- 清理：`npm run clean`
+- 部署：`npm run deploy`
+
+输出要求：
+- 修改 YAML：2 空格缩进，保留注释，不要引入 tab
+- 修改 Pug/Stylus/JS：保持项目既有风格（2 空格缩进、JS 单引号）
+- 做任何“可能影响部署”的改动前，先解释影响面（URL、permalink、搜索、SEO、主题行为）
+

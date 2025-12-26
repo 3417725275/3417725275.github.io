@@ -1,0 +1,22 @@
+---
+description: Hexo/主题 YAML 配置修改规范
+globs:
+  - "_config.yml"
+  - "themes/butterfly/_config.yml"
+  - "**/*_config.yml"
+---
+
+YAML 修改规范：
+- 仅使用 2 空格缩进，禁止 tab
+- 保持原有注释与字段顺序（除非有明确重构理由）
+- 修改前先确认字段所属（Hexo 主配置 vs Butterfly 主题配置），避免“写对了地方但不生效”
+
+本项目关键事实（用于避免误改）：
+- 站点 URL：`https://jugelizi.top`
+- permalink：`post/:abbrlink.html`（使用 hexo-abbrlink）
+- Markdown 渲染：markdown-it-plus + KaTeX 插件（strict/throwOnError 已禁用）
+- 代码高亮：主配置里启用 highlight.js（不要随意切换引擎，除非用户要求）
+
+变更提示：
+- 改 permalink / abbrlink / 搜索（searchdb）相关配置时，必须提醒需要 `npm run clean && npm run build` 全量重建验证
+

@@ -1,0 +1,19 @@
+---
+description: Butterfly 定制策略（避免直接改主题源码）
+globs:
+  - "source/css/**"
+  - "source/js/**"
+  - "themes/butterfly/**"
+---
+
+默认策略（很重要）：
+- 除非用户明确要求，否则不要改 `themes/butterfly/` 里的源码文件（Pug/Stylus/JS）
+- 需要实现样式/交互定制时，优先落在：
+  - `source/css/custom.css`
+  - 主题配置：`themes/butterfly/_config.yml`（例如导航、代码块、图片、第三方服务等）
+  - `source/img/`（站点图片资源）
+
+如果用户明确要求“改主题源码”：
+- 先说明：升级主题可能覆盖改动；建议同步记录改动点
+- 改动要小、可回滚、并尽量用“覆盖/注入/配置”替代硬改
+
